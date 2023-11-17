@@ -1,6 +1,9 @@
 package com.example.draganddrop
 
 import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.PointF
 import android.util.AttributeSet
 import android.util.Log
@@ -8,12 +11,31 @@ import android.view.MotionEvent
 import android.view.View
 
 private const val TAG = "BoxDrawingView"
+private val background_color = Color.rgb(248, 239, 224)
+private val foreground_color = Color.argb(32, 255, 0, 0)
 class BoxDrawingView(
     context: Context,
     attrs: AttributeSet? = null
 ): View(context, attrs) {
     private var currentBox: Box? = null
     private val boxes = mutableListOf<Box>()
+
+    private val boxPaint = Paint().apply {
+        color = 0x22ff0000.toInt()
+        color = foreground_color
+    }
+
+    private val backgroundPaint = Paint().apply {
+        color = 0xfff8efe0.toInt()
+        color = background_color
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        canvas.drawPaint(backgroundPaint)
+        boxes.forEach {box ->
+            canvas.drawRect(box.left, box.top, box.right, box.bottom, boxPaint)
+        }
+    }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val current = PointF(event.x, event.y)

@@ -1,19 +1,21 @@
 package com.example.draganddrop
 
 import android.graphics.PointF
+import kotlin.math.max
+import kotlin.math.min
 
 data class Box(val start: PointF) {
 
     var end: PointF = start
     val left: Float
-        get() = Math.min(start.x, end.x)
+        get() = min(start.x, end.x)
 
     val right: Float
-        get() = Math.max(start.x, end.x)
+        get() = max(start.x, end.x)
 
     val top: Float
-        get() = Math.min(start.y, end.y)
+        get() = min(start.y, end.y)
 
     val bottom: Float
-        get() = Math.max(start.y, end.y)
+        get() = max(start.y, end.y)
 }
