@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DragAndDrop"
+rootProject.name = "DragAndDraw"
 include(":app")
  
