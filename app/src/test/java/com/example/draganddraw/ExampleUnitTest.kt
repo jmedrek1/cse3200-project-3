@@ -1,4 +1,4 @@
-package com.example.draganddrop
+package com.example.draganddraw
 
 import org.junit.Test
 

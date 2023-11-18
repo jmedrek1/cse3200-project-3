@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.draganddrop"
+    namespace = "com.example.draganddraw"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.draganddrop"
+        applicationId = "com.example.draganddraw"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

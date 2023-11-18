@@ -1,4 +1,4 @@
-package com.example.draganddrop
+package com.example.draganddraw
 
 import android.content.Context
 import android.graphics.Canvas
