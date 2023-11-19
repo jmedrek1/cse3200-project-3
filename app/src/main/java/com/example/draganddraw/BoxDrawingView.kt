@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import kotlin.math.min
 
 private const val TAG = "BoxDrawingView"
 private val background_color = Color.rgb(248, 239, 224)
@@ -34,7 +35,7 @@ class BoxDrawingView(
         canvas.drawPaint(backgroundPaint)
         boxes.forEach {box ->
 
-            canvas.drawRect(box.left, box.top, box.right, box.bottom, boxPaint)
+            canvas.drawRect(box.left, box.top, box.left + min(box.width, box.height), box.top + min(box.width, box.height), boxPaint)
         }
     }
 
