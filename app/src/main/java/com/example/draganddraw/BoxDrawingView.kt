@@ -33,6 +33,7 @@ class BoxDrawingView(
     override fun onDraw(canvas: Canvas) {
         canvas.drawPaint(backgroundPaint)
         boxes.forEach {box ->
+
             canvas.drawRect(box.left, box.top, box.right, box.bottom, boxPaint)
         }
     }

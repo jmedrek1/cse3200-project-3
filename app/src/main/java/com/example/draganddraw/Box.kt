@@ -1,6 +1,7 @@
 package com.example.draganddraw
 
 import android.graphics.PointF
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
@@ -20,9 +21,9 @@ data class Box(val start: PointF) {
         get() = max(start.y, end.y)
 
     val width: Float
-        get() = right - left
+        get() = abs(end.x - start.x)
 
     val height: Float
-        get() = top - bottom
+        get() = abs(end.y - start.y)
 
 }
