@@ -22,20 +22,35 @@ class BoxDrawingView(
     private val boxes = mutableListOf<Box>()
 
     private val boxPaint = Paint().apply {
-        color = 0x22ff0000.toInt()
+//        color = 0x22ff0000.toInt()
         color = foreground_color
     }
 
     private val backgroundPaint = Paint().apply {
-        color = 0xfff8efe0.toInt()
+//        color = 0xfff8efe0.toInt()
         color = background_color
     }
 
     override fun onDraw(canvas: Canvas) {
         canvas.drawPaint(backgroundPaint)
         boxes.forEach {box ->
-
-            canvas.drawRect(box.left, box.top, box.left + min(box.width, box.height), box.top + min(box.width, box.height), boxPaint)
+            if (box.width > box.height) {
+                canvas.drawRect(
+                    box.left,
+                    box.top,
+                    box.left + min(box.width, box.height),
+                    box.top + min(box.width, box.height),
+                    boxPaint
+                )
+            } else {
+                canvas.drawOval(
+                    box.left,
+                    box.top,
+                    box.left + min(box.width, box.height),
+                    box.top + min(box.width, box.height),
+                    boxPaint
+                )
+            }
         }
     }
 
