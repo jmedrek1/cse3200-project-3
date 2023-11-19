@@ -20,6 +20,8 @@ class BoxDrawingView(
 ): View(context, attrs) {
     private var currentBox: Box? = null
     private val boxes = mutableListOf<Box>()
+    private val maxBoxCount = 3
+//    private var shapeCount = 0
 
     private val boxPaint = Paint().apply {
 //        color = 0x22ff0000.toInt()
@@ -61,8 +63,10 @@ class BoxDrawingView(
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 action = "ACTION_DOWN"
-                currentBox = Box(current).also {
-                    boxes.add(it)
+                if (boxes.size < maxBoxCount) {
+                    currentBox = Box(current).also {
+                        boxes.add(it)
+                    }
                 }
             }
             MotionEvent.ACTION_MOVE -> {
